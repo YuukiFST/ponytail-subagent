@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "ponytail-subagent",
-      "description": "Injects Ponytail into general-purpose and cavecrew-builder subagents; the main thread stays untouched.",
+      "description": "Injects Ponytail into general-purpose subagents; the main thread stays untouched.",
       "source": "./",
       "category": "productivity"
     }

@@ -30,13 +30,13 @@ test('hook hands the full ruleset to the subagent within the context cap', () =>
 });
 
 test('matcher picks code-writing subagents only', () => {
-  // Claude Code reads a matcher holding ':' as an unanchored JavaScript regex.
+  // Claude Code reads a matcher holding '^' or '$' as an unanchored JavaScript regex.
   const matcher = new RegExp(subagentStartGroup.matcher);
 
-  for (const agentType of ['general-purpose', 'caveman:cavecrew-builder']) {
+  for (const agentType of ['general-purpose']) {
     assert.ok(matcher.test(agentType), `${agentType} should get the ruleset`);
   }
-  for (const agentType of ['Explore', 'Plan', 'caveman:cavecrew-investigator', 'caveman:cavecrew-reviewer', 'claude-code-guide']) {
+  for (const agentType of ['Explore', 'Plan', 'general-purpose-x', 'caveman:cavecrew-builder', 'caveman:cavecrew-investigator', 'caveman:cavecrew-reviewer', 'claude-code-guide']) {
     assert.ok(!matcher.test(agentType), `${agentType} should not get the ruleset`);
   }
 });

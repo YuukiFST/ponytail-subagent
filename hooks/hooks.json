@@ -3,7 +3,7 @@
   "hooks": {
     "SubagentStart": [
       {
-        "matcher": "^(general-purpose|caveman:cavecrew-builder)$",
+        "matcher": "^general-purpose$",
         "hooks": [
           {
             "type": "command",

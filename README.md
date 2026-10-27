@@ -19,7 +19,7 @@ Needs `node` on `PATH`.
 A `SubagentStart` hook ([`hooks/hooks.json`](hooks/hooks.json)) injects [`ponytail.md`](ponytail.md) as `additionalContext` into subagents whose type matches:
 
 ```
-^(general-purpose|caveman:cavecrew-builder)$
+^general-purpose$
 ```
 
 Every other subagent type starts as usual.
