@@ -1,0 +1,10 @@
+{
+  "name": "ponytail-subagent",
+  "version": "0.2.0",
+  "description": "Ponytail's lazy-senior-dev ruleset, injected only into code-writing subagents.",
+  "license": "MIT",
+  "private": true,
+  "exports": {
+    ".": "./opencode/server.mjs"
+  }
+}
