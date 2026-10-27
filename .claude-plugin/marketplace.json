@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ponytail-subagent",
+  "description": "Ponytail's ruleset for Claude Code subagents only.",
+  "owner": {
+    "name": "YuukiFST",
+    "url": "https://github.com/YuukiFST"
+  },
+  "plugins": [
+    {
+      "name": "ponytail-subagent",
+      "description": "Injects Ponytail into general-purpose and cavecrew-builder subagents; the main thread stays untouched.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

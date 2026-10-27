@@ -1,0 +1,18 @@
+{
+  "description": "Ponytail ruleset for code-writing subagents only; the main thread never receives it",
+  "hooks": {
+    "SubagentStart": [
+      {
+        "matcher": "^(general-purpose|caveman:cavecrew-builder)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/inject-ponytail.js"],
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}
