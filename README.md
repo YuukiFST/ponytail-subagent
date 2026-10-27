@@ -1,9 +1,11 @@
 # ponytail-subagent
 
 Subagents that write code tend to overbuild, and [Ponytail](https://github.com/DietrichGebert/ponytail) can only reach them by also taking over the main thread.
-This Claude Code plugin hands Ponytail's ruleset to code-writing subagents alone: the main thread, and read-only agents like `Explore`, never see it.
+This plugin, for Claude Code and OpenCode, hands Ponytail's ruleset to code-writing subagents alone: the main thread, and read-only agents like `Explore`, never see it.
 
 ## Install
+
+Claude Code:
 
 ```
 /plugin marketplace add YuukiFST/ponytail-subagent
@@ -14,9 +16,15 @@ This Claude Code plugin hands Ponytail's ruleset to code-writing subagents alone
 
 Needs `node` on `PATH`.
 
+OpenCode 2:
+
+```
+opencode plugin add github:YuukiFST/ponytail-subagent
+```
+
 ## What gets it
 
-A `SubagentStart` hook ([`hooks/hooks.json`](hooks/hooks.json)) injects [`ponytail.md`](ponytail.md) as `additionalContext` into subagents whose type matches:
+In Claude Code, a `SubagentStart` hook ([`hooks/hooks.json`](hooks/hooks.json)) injects [`ponytail.md`](ponytail.md) as `additionalContext` into subagents whose type matches:
 
 ```
 ^general-purpose$
@@ -24,6 +32,9 @@ A `SubagentStart` hook ([`hooks/hooks.json`](hooks/hooks.json)) injects [`ponyta
 
 Every other subagent type starts as usual.
 To cover another type, add it to that matcher and to the lists in [`test/hook.test.js`](test/hook.test.js).
+
+In OpenCode, [`opencode/server.mjs`](opencode/server.mjs) adds the same file to the system prompt of every model call the `general` subagent makes; `general` is OpenCode's counterpart of `general-purpose`.
+To cover another agent, add its id to `PONYTAIL_AGENTS` there and to the lists in [`test/opencode.test.mjs`](test/opencode.test.mjs).
 
 ## How it differs from Ponytail
 
