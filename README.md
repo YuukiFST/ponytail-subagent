@@ -31,6 +31,7 @@ In Claude Code, a `SubagentStart` hook ([`hooks/hooks.json`](hooks/hooks.json)) 
 ```
 
 Every other subagent type starts as usual.
+The hook also returns a `systemMessage`, so the subagent's own transcript shows `ponytail active in <agent type>`; Claude Code keeps that line out of the main thread.
 To cover another type, add it to that matcher and to the lists in [`test/hook.test.js`](test/hook.test.js).
 
 In OpenCode, [`opencode/server.mjs`](opencode/server.mjs) adds the same file to the system prompt of every model call the `general` subagent makes; `general` is OpenCode's counterpart of `general-purpose`.

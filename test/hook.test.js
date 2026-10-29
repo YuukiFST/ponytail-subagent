@@ -24,6 +24,7 @@ test('hook hands the full ruleset to the subagent within the context cap', () =>
   const output = runHookAsClaudeCode('general-purpose');
   const ruleset = fs.readFileSync(path.join(pluginRoot, 'ponytail.md'), 'utf8');
 
+  assert.strictEqual(output.systemMessage, 'ponytail active in general-purpose');
   assert.strictEqual(output.hookSpecificOutput.hookEventName, 'SubagentStart');
   assert.strictEqual(output.hookSpecificOutput.additionalContext, ruleset);
   assert.ok(ruleset.length < ADDITIONAL_CONTEXT_CAP, `ruleset is ${ruleset.length} chars`);
