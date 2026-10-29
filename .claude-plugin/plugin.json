@@ -1,6 +1,6 @@
 {
   "name": "ponytail-subagent",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Ponytail's lazy-senior-dev ruleset, injected only into code-writing subagents.",
   "author": {
     "name": "YuukiFST",
